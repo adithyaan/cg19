@@ -2,8 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorWhite"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true">
 
     <LinearLayout
@@ -18,21 +18,31 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Code Gladiators"
-            android:textColor="@color/colorBlack"
+            android:text="Smart Mobile Laundry"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
             android:layout_gravity="center_horizontal"
             android:textSize="32sp"
-            android:fontFamily="@font/montserrat"/>
+            android:fontFamily="@font/amita"/>
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/laundry3"
+            />
 
         <!-- Email Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:boxBackgroundColor="@color/colorPrimary"
             android:id="@+id/email_container"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="14dp"
             android:theme="@style/MyEditTextTheme"
             android:textColorHint="@color/colorBlack"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="12dp">
             <EditText android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:theme="@style/MyEditTextTheme"
@@ -47,12 +57,13 @@
         <!-- Password Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
+            android:theme="@style/MyEditTextTheme"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            app:boxBackgroundColor="@color/colorPrimary"
             android:id="@+id/password_container"
-            android:theme="@style/MyEditTextTheme"
             android:textColorHint="@color/colorBlack"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="12dp">
             <EditText android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:textColorHint="@color/colorPrimary"
@@ -67,18 +78,40 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:background="@color/colorPrimary"
             android:layout_marginBottom="24dp"
+            android:textStyle="bold"
             android:padding="12dp"
+            android:letterSpacing="0.5"
+            android:fontFamily="@font/montserrat"
             android:text="Login"/>
 
-        <TextView android:id="@+id/link_signup"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
-            android:layout_marginBottom="100dp"
-            android:text="No account yet? Create one"
-            android:gravity="center"
-            android:textSize="16dip"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView android:id="@+id/link_signup"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/montserrat"
+                android:layout_marginBottom="100dp"
+                android:text="No account yet? Create one"
+                android:gravity="center"
+                android:textSize="16dip"/>
+
+            <ProgressBar
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/progress_bar"
+                android:layout_marginTop="4dp"
+                android:theme="@style/LoginProgress"
+                android:indeterminate="true"/>
+
+        </RelativeLayout>
+
 
     </LinearLayout>
     <!--</LinearLayout>-->

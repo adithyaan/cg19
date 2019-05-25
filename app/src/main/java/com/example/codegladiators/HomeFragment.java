@@ -105,7 +105,7 @@ public class HomeFragment extends Fragment {
     TextView finding;
     ProgressBar pg_bar;
     RatingBar ratingBar;
-    ImageView qr;
+    ImageView qr,call;
     QRGEncoder qrgEncoder;
 
     public static List<DiscoveryResult> s_ResultList;
@@ -164,6 +164,15 @@ public class HomeFragment extends Fragment {
         finding = view.findViewById(R.id.finding_text);
         pg_bar = view.findViewById(R.id.pg_hr);
         ratingBar = view.findViewById(R.id.rating);
+        call = view.findViewById(R.id.call);
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_CALL);
+                i.setData(Uri.parse("tel:"+"7904531832"));
+                startActivity(i);
+            }
+        });
         qr = view.findViewById(R.id.qr);
         qr.setOnClickListener(new View.OnClickListener() {
             @Override

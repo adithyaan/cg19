@@ -41,9 +41,6 @@
                 android:fontFamily="@font/montserrat"
                 android:textColor="@color/colorWhite"
                 android:textSize="18sp"/>
-
-
-
             <ProgressBar
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="match_parent"
@@ -62,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_below="@+id/pg_hr">
+
 
                 <ImageView
                     android:layout_width="80dp"
@@ -161,6 +159,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_call_black_24dp"
+                    android:id="@+id/call"
                     android:layout_alignParentRight="true"
                     android:layout_below="@+id/mobile_txt"/>
 
