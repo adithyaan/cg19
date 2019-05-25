@@ -1,0 +1,27 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <!-- Customize your theme here. -->
+
+    </style>
+
+    <style name="MyEditTextTheme" parent="TextAppearance.AppCompat">
+        <!--EditText hint color-->
+        <item name="android:textColorHint">@color/colorPrimaryDark</item>
+        <!-- TextInputLayout text color-->
+        <item name="colorControlActivated">@color/colorPrimaryDark</item>
+        <!-- EditText line color when EditText on-focus-->
+        <item name="colorControlNormal">@color/colorBlack</item>
+
+    </style>
+
+    <style name="HorizontalProgress" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/colorWhite</item>
+    </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlActivated">#ffeb3b</item>
+    </style>
+
+</resources>

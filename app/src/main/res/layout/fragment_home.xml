@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <fragment
+        class="com.here.android.mpa.mapping.MapFragment"
+        android:id="@+id/mapfragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <include layout="@layout/bottom_sheet"
+        android:visibility="visible"/>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        app:cardUseCompatPadding="false"
+        android:id="@+id/finding_card"
+        app:cardElevation="8dp"
+        android:visibility="gone"
+        app:cardBackgroundColor="@color/colorPrimary"
+        android:layout_gravity="bottom">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:padding="8dp"
+            android:layout_margin="4dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Finding available drivers..."
+                android:id="@+id/finding_text"
+                android:visibility="visible"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"/>
+
+
+
+            <ProgressBar
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:id="@+id/pg_hr"
+                android:layout_marginTop="4dp"
+                android:layout_below="@+id/finding_text"
+                android:theme="@style/HorizontalProgress"
+                android:indeterminate="true"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/details"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_below="@+id/pg_hr">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/profile_pic"
+                    android:src="@drawable/profile_pic1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:fontFamily="@font/montserrat"
+                    android:layout_marginTop="4dp"
+                    android:layout_toRightOf="@+id/profile_pic"
+                    android:textSize="18sp"
+                    android:id="@+id/name_txt"
+                    android:layout_marginRight="16dp"
+                    android:textColor="@color/colorWhite"
+                    />
+
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@+id/name_txt"
+                    android:layout_toRightOf="@+id/rating_txt"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Bala Murugan"
+                    android:textColor="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/mobile_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/name_txt"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="9dp"
+                    android:layout_toRightOf="@+id/profile_pic"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Mobile "
+                    android:textColor="@color/colorWhite"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9876543210"
+                    android:layout_below="@+id/name_txt"
+                    android:textSize="18sp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/colorWhite"
+                    android:fontFamily="@font/montserrat"
+                    android:layout_toRightOf="@+id/rating_txt"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Ratings"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/rating_txt"
+                    android:layout_below="@+id/mobile_txt"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/montserrat"
+                    android:layout_toRightOf="@id/profile_pic"
+                    android:textColor="@color/colorWhite"
+                    />
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rating="2.5"
+                    android:numStars="5"
+                    android:layout_toRightOf="@+id/rating_txt"
+                    android:id="@+id/rating"
+                    android:layout_marginStart="1dp"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_marginTop="9dp"
+                    android:layout_below="@+id/mobile_txt"
+                    android:progressTint="@color/colorWhite"
+                    android:progressBackgroundTint="@android:color/darker_gray"
+                    />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:id="@+id/qr"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/qr"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_call_black_24dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/mobile_txt"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+
+    </android.support.v7.widget.CardView>
+
+
+
+    <android.support.v7.widget.CardView
+        android:layout_margin="10dp"
+        android:id="@+id/notify_card"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        android:layout_height="65dp"
+        app:cardCornerRadius="5dp">
+
+        <TextView
+            android:drawableLeft="@drawable/ic_person_black_24dp"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Driver is on the Way..! Please keep track of the location of the driver in the map."
+            android:textSize="15sp"
+            android:fontFamily="@font/montserrat"
+            android:textColor="@color/colorWhite"
+            />
+    </android.support.v7.widget.CardView>
+
+
+</android.support.design.widget.CoordinatorLayout>

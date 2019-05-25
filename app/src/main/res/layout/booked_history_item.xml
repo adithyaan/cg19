@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="10dp"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="10dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        app:cardBackgroundColor="@color/colorWhite"
+        android:id="@+id/ijp_card"
+        android:layout_height="wrap_content"
+        app:cardElevation="2dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:padding="4dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:drawableLeft="@drawable/ic_cust_name_24dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlack"
+                    android:id="@+id/name"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="6dp"
+                    android:textSize="18sp"
+                    android:drawablePadding="10dp"
+                    android:text="Rahul"/>
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/name"
+                    android:layout_marginBottom="6dp"
+                    android:drawableLeft="@drawable/ic_home_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:text="Address"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp" />
+                <TextView
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@drawable/ic_date_range_black_24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/date"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="3dp"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="6dp"
+                    android:text="28/06/1998"
+                    android:textColor="@color/colorBlack"/>
+                <TextView
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@drawable/ic_amt_24dp"
+                    android:textSize="16sp"
+                    android:layout_below="@+id/address"
+                    android:layout_width="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/amount"
+                    android:text="$10"
+                    android:textColor="@color/colorBlack"/>
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--android:orientation="vertical"-->
+    <!--android:padding="12dp"-->
+    <!--&gt;-->
+
+
+    <!--<android.support.design.card.MaterialCardView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="150dp">-->
+    <!--<LinearLayout-->
+
+        <!--android:clipToPadding="false"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+                <!--<TextView-->
+                    <!--android:drawableLeft="@drawable/ic_cust_name_24dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:id="@+id/name"-->
+                    <!--android:drawablePadding="10dp"-->
+                    <!--android:text="A2B"/>-->
+                <!--<android.support.v4.widget.Space-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="15dp" />-->
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="test"-->
+                    <!--android:id="@+id/address"-->
+                    <!--android:drawablePadding="10dp"-->
+                    <!--android:drawableLeft="@drawable/ic_home_black_24dp"-->
+                    <!--android:textColor="@android:color/darker_gray"/>-->
+                <!--<android.support.v4.widget.Space-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="15dp" />-->
+                <!--<TextView-->
+                    <!--android:drawablePadding="10dp"-->
+                    <!--android:drawableLeft="@drawable/ic_date_range_black_24dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/date"-->
+                    <!--android:text="28/06/1998"-->
+                    <!--android:textColor="@android:color/darker_gray"/>-->
+
+                <!--<android.support.v4.widget.Space-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="15dp" />-->
+                <!--<TextView-->
+                    <!--android:drawablePadding="10dp"-->
+                    <!--android:drawableLeft="@drawable/ic_amt_24dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/amount"-->
+                    <!--android:text="28/06/1998"-->
+                    <!--android:textColor="@android:color/darker_gray"/>-->
+
+            <!--</LinearLayout>-->
+
+    <!--</android.support.design.card.MaterialCardView>-->
+<!--</LinearLayout>-->
