@@ -18,7 +18,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Code Gladiator"
+        android:text="Smart Mobile Laundry"
         android:textSize="32sp"
         android:fontFamily="@font/montserrat"
         android:textColor="@color/colorBlack"/>
@@ -29,13 +29,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="Profile Name"
+        android:text="Rahul"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-    <TextView
-        android:id="@+id/profileNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat"
-        android:text="Number" />
 </LinearLayout>
