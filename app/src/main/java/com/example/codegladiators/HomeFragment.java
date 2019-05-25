@@ -100,7 +100,7 @@ public class HomeFragment extends Fragment {
     private List<MapObject> m_mapObjectList = new ArrayList<>();
     ResultListAdapter listAdapter;
     DatabaseReference myRef;
-    CardView finding_card;
+    CardView finding_card,notify_card;
     RelativeLayout details;
     TextView finding;
     ProgressBar pg_bar;
@@ -160,6 +160,7 @@ public class HomeFragment extends Fragment {
         listView = view.findViewById(R.id.listview);
         finding_card = view.findViewById(R.id.finding_card);
         finding_card.setBackgroundResource(R.drawable.card_top_rounded);
+        notify_card = view.findViewById(R.id.notify_card);
         details = view.findViewById(R.id.details);
         finding = view.findViewById(R.id.finding_text);
         pg_bar = view.findViewById(R.id.pg_hr);
@@ -486,7 +487,7 @@ public class HomeFragment extends Fragment {
 
                 llBottomSheet.setVisibility(View.GONE);
                 findingcard();
-                view.findViewById(R.id.notify_card).setVisibility(View.VISIBLE);
+//                view.findViewById(R.id.notify_card).setVisibility(View.VISIBLE);
                 Snackbar.make(view,"Successfully Booked your truck is on the way",Toast.LENGTH_LONG).show();
                 AddBooking.insert("adithya",address,lat,lng,clothes_et.getText().toString());
                 sendNotification();
@@ -523,6 +524,7 @@ public class HomeFragment extends Fragment {
                 finding.setVisibility(View.GONE);
                 pg_bar.setVisibility(View.GONE);
                 details.setVisibility(View.VISIBLE);
+                notify_card.setVisibility(View.VISIBLE);
             }
         },8000);
 
@@ -628,7 +630,7 @@ public class HomeFragment extends Fragment {
                     Log.e("Error",task.getException().getMessage());
                     result = "Failed";
                 }
-                Toast.makeText(getContext(), "Result:"+result, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "Result:"+result, Toast.LENGTH_SHORT).show();
                 return result;
             }
         });
