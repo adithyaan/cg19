@@ -96,6 +96,7 @@ public class HomeFragment extends Fragment {
     private PositioningManager posManager;
     boolean paused;
     String address;
+    HashMap<String,String> map = new HashMap<String,String>();
     String lat,lng;
     private List<MapObject> m_mapObjectList = new ArrayList<>();
     ResultListAdapter listAdapter;
@@ -167,12 +168,23 @@ public class HomeFragment extends Fragment {
                 alertbuilder.setView(v);
                 final android.support.v7.app.AlertDialog dialog = alertbuilder.create();
                 dialog.show();
+                final TextView share = v.findViewById(R.id.share_exp);
+
                 final Button ok = v.findViewById(R.id.okay_feed);
                 ok.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ok.setBackgroundColor(getResources().getColor(R.color.colorLightYello));
-                        dialog.dismiss();
+                        ok.setTextColor(getResources().getColor(R.color.colorLightYello));
+                        share.setTextColor(getResources().getColor(R.color.colorPrimary));
+                        share.setText("Thansk for sharing your experience with us!!!");
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                dialog.dismiss();
+                            }
+                        },3000);
+
                     }
                 });
             }
@@ -330,52 +342,52 @@ public class HomeFragment extends Fragment {
                                 new WeakReference<PositioningManager.OnPositionChangedListener>(positionListener));
                         m_map.getPositionIndicator().setVisible(true);
 
-                        myRef.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                // This method is called once with the initial value and again
-                                // whenever data at this location is updated.
-//                                    String value = dataSnapshot.getValue(String.class);
-                                Log.d("changed", "Value is: " + dataSnapshot.getValue());
-                                for (DataSnapshot a:dataSnapshot.getChildren()){
-                                    System.out.println("for"+a.getValue());
-
-                                    map.put(a.getKey(),a.getValue()+"");
-                                    map.put(a.getKey(),a.getValue()+"");
-                                }
-
-
-
-                                GeoCoordinate geoCoordinate=new GeoCoordinate(Double.parseDouble(map.get("latitude")),Double.parseDouble(map.get("longitude")));
-
-
-                                Image img = new Image();
-
-                                try {
-                                    img.setImageResource(R.drawable.ma);
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-
-                                MapMarker mapMarker = new MapMarker();
-                                mapMarker.setIcon(img);
-
-                                mapMarker.setCoordinate(geoCoordinate);
-                                m_map.addMapObject(mapMarker);
-                                m_mapObjectList.add(mapMarker);
-
-                                m_map.setCenter(geoCoordinate, Map.Animation.NONE);
-                                m_map.getPositionIndicator();
-
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError error) {
-                                // Failed to read value
-                                Log.w("changed", "Failed to read value.", error.toException());
-                            }
-                        });
-
+//                        myRef.addValueEventListener(new ValueEventListener() {
+//                            @Override
+//                            public void onDataChange(DataSnapshot dataSnapshot) {
+//                                // This method is called once with the initial value and again
+//                                // whenever data at this location is updated.
+////                                    String value = dataSnapshot.getValue(String.class);
+//                                Log.d("changed", "Value is: " + dataSnapshot.getValue());
+//                                for (DataSnapshot a:dataSnapshot.getChildren()){
+//                                    System.out.println("for"+a.getValue());
+//
+//                                    map.put(a.getKey(),a.getValue()+"");
+//                                    map.put(a.getKey(),a.getValue()+"");
+//                                }
+//
+//
+//
+//                                GeoCoordinate geoCoordinate=new GeoCoordinate(Double.parseDouble(map.get("latitude")),Double.parseDouble(map.get("longitude")));
+//
+//
+//                                Image img = new Image();
+//
+//                                try {
+//                                    img.setImageResource(R.drawable.ma);
+//                                } catch (IOException e) {
+//                                    e.printStackTrace();
+//                                }
+//
+//                                MapMarker mapMarker = new MapMarker();
+//                                mapMarker.setIcon(img);
+//
+//                                mapMarker.setCoordinate(geoCoordinate);
+//                                m_map.addMapObject(mapMarker);
+//                                m_mapObjectList.add(mapMarker);
+//
+//                                m_map.setCenter(geoCoordinate, Map.Animation.NONE);
+//                                m_map.getPositionIndicator();
+//
+//                            }
+//
+//                            @Override
+//                            public void onCancelled(DatabaseError error) {
+//                                // Failed to read value
+//                                Log.w("changed", "Failed to read value.", error.toException());
+//                            }
+//                        });
+//
 
                         posManager.addListener(
                                 new WeakReference<PositioningManager.OnPositionChangedListener>(positionListener));
@@ -511,6 +523,8 @@ public class HomeFragment extends Fragment {
                 Snackbar.make(view,"Successfully Booked your truck is on the way",Toast.LENGTH_LONG).show();
                 AddBooking.insert("adithya",address,lat,lng,clothes_et.getText().toString());
                 sendNotification();
+                addLocationListener();
+
             }
         });
     }
@@ -656,6 +670,55 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    public void addLocationListener(){
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+//                                    String value = dataSnapshot.getValue(String.class);
+                Log.d("changed", "Value is: " + dataSnapshot.getValue());
+                for (DataSnapshot a:dataSnapshot.getChildren()){
+                    System.out.println("for"+a.getValue());
+
+                    map.put(a.getKey(),a.getValue()+"");
+                    map.put(a.getKey(),a.getValue()+"");
+                }
+
+
+
+                GeoCoordinate geoCoordinate=new GeoCoordinate(Double.parseDouble(map.get("latitude")),Double.parseDouble(map.get("longitude")));
+
+
+                Image img = new Image();
+
+                try {
+                    img.setImageResource(R.drawable.ma);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                MapMarker mapMarker = new MapMarker();
+                mapMarker.setIcon(img);
+
+                mapMarker.setCoordinate(geoCoordinate);
+                m_map.addMapObject(mapMarker);
+                m_mapObjectList.add(mapMarker);
+
+                m_map.setCenter(geoCoordinate, Map.Animation.NONE);
+                m_map.getPositionIndicator();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("changed", "Failed to read value.", error.toException());
+            }
+        });
+
+
+    }
 
 }
 
