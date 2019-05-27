@@ -126,7 +126,6 @@
 
             <TextView
                 android:fontFamily="@font/bree_serif"
-
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
