@@ -12,6 +12,7 @@
         android:id="@+id/share_exp"
         android:textColor="@color/colorBlack"
         android:textSize="20sp"
+        android:textStyle="bold"
         android:fontFamily="@font/montserrat"
         android:textAlignment="center"
         android:text="Share your experience with us"/>

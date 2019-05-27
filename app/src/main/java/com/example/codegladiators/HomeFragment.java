@@ -37,6 +37,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cooltechworks.views.ScratchImageView;
 import com.example.codegladiators.R;
 import com.example.codegladiators.ResultListAdapter;
 import com.google.android.gms.tasks.Continuation;
@@ -102,12 +103,13 @@ public class HomeFragment extends Fragment {
     ResultListAdapter listAdapter;
     DatabaseReference myRef;
     CardView finding_card,notify_card;
-    RelativeLayout details;
+    RelativeLayout details,thanks;
     TextView finding,driver_name;
     ProgressBar pg_bar;
     RatingBar ratingBar;
     ImageView qr,call;
     QRGEncoder qrgEncoder;
+
 
     public static List<DiscoveryResult> s_ResultList;
 
@@ -158,9 +160,11 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, null);
         driver_name = view.findViewById(R.id.driver_name);
+        thanks = view.findViewById(R.id.thanks_rel);
         driver_name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                notify_card.setVisibility(View.GONE);
                 android.support.v7.app.AlertDialog.Builder alertbuilder = new android.support.v7.app.AlertDialog.Builder(getActivity());
                 alertbuilder.setCancelable(true);
                 View v = LayoutInflater.from(getActivity()).inflate(R.layout.feedback,null);
@@ -182,8 +186,26 @@ public class HomeFragment extends Fragment {
                             @Override
                             public void run() {
                                 dialog.dismiss();
+                                details.setVisibility(View.GONE);
+                                thanks.setVisibility(View.VISIBLE);
+                                Handler handler = new Handler();
+                                handler.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        android.support.v7.app.AlertDialog.Builder alertbuilder = new android.support.v7.app.AlertDialog.Builder(getActivity());
+                                        alertbuilder.setCancelable(true);
+                                        View v = LayoutInflater.from(getActivity()).inflate(R.layout.award,null);
+                                        v.setVerticalScrollBarEnabled(false);
+                                        alertbuilder.setView(v);
+                                        final android.support.v7.app.AlertDialog dialog = alertbuilder.create();
+                                        dialog.show();
+                                    }
+                                },3000);
                             }
                         },3000);
+
+
+
 
                     }
                 });
@@ -195,6 +217,23 @@ public class HomeFragment extends Fragment {
         notify_card = view.findViewById(R.id.notify_card);
         details = view.findViewById(R.id.details);
         finding = view.findViewById(R.id.finding_text);
+        finding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                ScratchImageView scratchImageView = new ScratchImageView(getActivity());
+//                scratchImageView.setRevealListener(new ScratchImageView.IRevealListener() {
+//                    @Override
+//                    public void onRevealed(ScratchImageView tv) {
+//                        // on reveal
+//                    }
+//
+//                    @Override
+//                    public void onRevealPercentChangedListener(ScratchImageView siv, float percent) {
+//                        // on image percent reveal
+//                    }
+//                });
+            }
+        });
         pg_bar = view.findViewById(R.id.pg_hr);
         ratingBar = view.findViewById(R.id.rating);
         call = view.findViewById(R.id.call);
@@ -395,7 +434,7 @@ public class HomeFragment extends Fragment {
                     }
                     else
                     {
-                        System.out.println("ERROR"+error.toString());
+//                        System.out.println("ERROR"+error.toString());
                     }
                 }
 

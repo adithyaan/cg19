@@ -7,25 +7,23 @@
 
         <item
             android:id="@+id/profile"
-
             android:title="Profile" />
 
         <item
             android:id="@+id/settings"
-
             android:title="Settings" />
-
 
         <item
             android:id="@+id/booked_history"
-
             android:title="Booked History" />
 
 
+        <item
+            android:id="@+id/rewards"
+            android:title="Rewards" />
 
         <item
             android:id="@+id/logout"
-            
             android:title="Log out" />
     </group>
 
