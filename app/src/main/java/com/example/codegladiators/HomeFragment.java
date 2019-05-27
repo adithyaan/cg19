@@ -102,7 +102,7 @@ public class HomeFragment extends Fragment {
     DatabaseReference myRef;
     CardView finding_card,notify_card;
     RelativeLayout details;
-    TextView finding;
+    TextView finding,driver_name;
     ProgressBar pg_bar;
     RatingBar ratingBar;
     ImageView qr,call;
@@ -156,7 +156,27 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, null);
-
+        driver_name = view.findViewById(R.id.driver_name);
+        driver_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.support.v7.app.AlertDialog.Builder alertbuilder = new android.support.v7.app.AlertDialog.Builder(getActivity());
+                alertbuilder.setCancelable(true);
+                View v = LayoutInflater.from(getActivity()).inflate(R.layout.feedback,null);
+                v.setVerticalScrollBarEnabled(false);
+                alertbuilder.setView(v);
+                final android.support.v7.app.AlertDialog dialog = alertbuilder.create();
+                dialog.show();
+                final Button ok = v.findViewById(R.id.okay_feed);
+                ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ok.setBackgroundColor(getResources().getColor(R.color.colorLightYello));
+                        dialog.dismiss();
+                    }
+                });
+            }
+        });
         listView = view.findViewById(R.id.listview);
         finding_card = view.findViewById(R.id.finding_card);
         finding_card.setBackgroundResource(R.drawable.card_top_rounded);

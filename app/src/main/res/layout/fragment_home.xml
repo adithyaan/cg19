@@ -87,6 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_toEndOf="@+id/name_txt"
+                    android:id="@+id/driver_name"
                     android:layout_toRightOf="@+id/rating_txt"
                     android:textSize="18sp"
                     android:fontFamily="@font/montserrat"

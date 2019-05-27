@@ -22,20 +22,20 @@ public class SplashActivity extends AppCompatActivity {
         new LogoLauncher().start();
     }
 
-    public class LogoLauncher extends Thread{
+        public class LogoLauncher extends Thread{
 
-        public void run(){
-            try{
-                sleep(3000);
-            }catch (InterruptedException e){
-                e.printStackTrace();
+            public void run(){
+                try{
+                    sleep(3000);
+                }catch (InterruptedException e){
+                    e.printStackTrace();
+                }
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
+                finish();
+
             }
-            Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
-            startActivity(intent);
-            finish();
-
         }
-    }
 
 }
 
