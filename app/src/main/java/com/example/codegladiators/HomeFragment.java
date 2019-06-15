@@ -12,7 +12,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
+import android.support.design.button.MaterialButton;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -34,6 +36,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -102,7 +105,7 @@ public class HomeFragment extends Fragment {
     private List<MapObject> m_mapObjectList = new ArrayList<>();
     ResultListAdapter listAdapter;
     DatabaseReference myRef;
-    CardView finding_card,notify_card;
+    CardView finding_card,notify_card,book_card;
     RelativeLayout details,thanks;
     TextView finding,driver_name;
     ProgressBar pg_bar;
@@ -117,7 +120,7 @@ public class HomeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     ListView listView;
-    Button book_now;
+    MaterialButton book_now;
     MapFragment m_mapFragment;
     Map m_map;
     private OnFragmentInteractionListener mListener;
@@ -158,7 +161,14 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, null);
+        final View view = inflater.inflate(R.layout.fragment_home, null);
+        book_card = view.findViewById(R.id.book_btn);
+        book_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomActivity(view);
+            }
+        });
         driver_name = view.findViewById(R.id.driver_name);
         thanks = view.findViewById(R.id.thanks_rel);
         driver_name.setOnClickListener(new View.OnClickListener() {
@@ -211,7 +221,7 @@ public class HomeFragment extends Fragment {
                 });
             }
         });
-        listView = view.findViewById(R.id.listview);
+
         finding_card = view.findViewById(R.id.finding_card);
         finding_card.setBackgroundResource(R.drawable.card_top_rounded);
         notify_card = view.findViewById(R.id.notify_card);
@@ -294,11 +304,73 @@ public class HomeFragment extends Fragment {
         myRef = database.getReference("message");
 
 
-        initBottomSheet(view);
+//        initBottomSheet(view);
         initMap(view);
 
-
         return view;
+    }
+
+    private void bottomActivity(final View view1) {
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
+        View view = getActivity().getLayoutInflater().inflate(R.layout.bottom_sheet, null);
+        bottomSheetDialog.setContentView(view);
+        bottomSheetDialog.show();
+        listView = view.findViewById(R.id.listview);
+        final EditText editText=view.findViewById(R.id.pickup_et);
+        final EditText clothes_et=view.findViewById(R.id.clothes);
+        book_now=view.findViewById(R.id.book_now_btn);
+
+        clothes_et.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listView.setVisibility(View.GONE);
+            }
+        });
+
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                cleanMap();
+                SearchRequest searchRequest = new SearchRequest(s.toString());
+                searchRequest.setSearchCenter(m_map.getCenter());
+                searchRequest.execute(discoveryResultPageListener);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                editText.setText(s_ResultList.get(position).getTitle());
+                listView.setVisibility(View.GONE);
+                address = s_ResultList.get(position).getTitle();
+                PlaceLink placeLink= (PlaceLink) s_ResultList.get(position);
+                addDestinationMarker(placeLink.getPosition().getLatitude(),placeLink.getPosition().getLongitude());
+            }
+        });
+
+        book_now.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                book_card.setVisibility(View.GONE);
+                bottomSheetDialog.dismiss();
+                findingcard();
+//                view.findViewById(R.id.notify_card).setVisibility(View.VISIBLE);
+                Snackbar.make(view1,"Successfully Booked your truck is on the way",Toast.LENGTH_LONG).show();
+                AddBooking.insert("adithya",address,lat,lng,clothes_et.getText().toString());
+                sendNotification();
+                addLocationListener();
+
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -498,12 +570,12 @@ public class HomeFragment extends Fragment {
             };
 
     private void initBottomSheet(final View view){
-        final LinearLayout llBottomSheet = (LinearLayout) view.findViewById(R.id.bottom_sheet);
+        final LinearLayout llBottomSheet =  view.findViewById(R.id.bottom_sheet);
         final EditText editText=view.findViewById(R.id.pickup_et);
         final EditText clothes_et=view.findViewById(R.id.clothes);
         book_now=view.findViewById(R.id.book_now_btn);
 
-        final BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(llBottomSheet);
+        BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(llBottomSheet);
 
 
         bottomSheetBehavior.setPeekHeight(140);

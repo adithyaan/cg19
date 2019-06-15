@@ -7,5 +7,8 @@
     <color name='colorBlack'>#000000</color>
     <color name='colorBlue'>#2979ff</color>
     <color name='BackgroundtWhiteColor'>#ff0000</color>
-    <color name="colorLightYello">#FFD700</color>
+    <color name="colorLightYello">#f9c013</color>
+    <color name="colorBlueFlash">#039be5</color>
+    <color name="colorGrey">#607d8b</color>
+
 </resources>

@@ -25,125 +25,109 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="Book Your Service"
-                android:textColor="@android:color/white"
-                android:layout_marginBottom="15dp"/>
-            </RelativeLayout>
+                android:layout_height="wrap_content"
+                android:padding="10dp">
 
+                <RelativeLayout
+                    android:id="@+id/one"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:background="@drawable/circle_shape_yellow"
+                    android:gravity="center">
 
-        <RelativeLayout
-            android:padding="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/wash_icon"
+                        android:tint="@color/colorBlue" />
+                </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:gravity="center"
-                android:id="@+id/one"
-                android:background="@drawable/circle_shape_yellow">
+                <android.support.v4.widget.Space
+                    android:id="@+id/sp1"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_below="@+id/one" />
 
-                <ImageView
+                <RelativeLayout
+                    android:id="@+id/two"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_below="@+id/sp1"
+                    android:background="@drawable/circle_shape_yellow"
+                    android:gravity="center">
 
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/iron_icon"
+                        android:tint="@color/colorBlue" />
+                </RelativeLayout>
+
+                <android.support.v4.widget.Space
+                    android:id="@+id/sp2"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_below="@+id/two" />
+
+                <RelativeLayout
+                    android:id="@+id/three"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_below="@+id/sp2"
+                    android:background="@drawable/circle_shape_yellow"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/wash_icon"
+                        android:tint="@color/colorBlue" />
+                </RelativeLayout>
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/wash_icon"
-                    />
-            </RelativeLayout>
+                    android:layout_below="@id/two"
+                    android:layout_marginLeft="19dp"
+                    android:layout_marginTop="27dp"
+                    android:layout_toRightOf="@+id/three"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Drying"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
 
-            <android.support.v4.widget.Space
-                android:layout_below="@+id/one"
-                android:id="@+id/sp1"
-                android:layout_width="match_parent"
-                android:layout_height="10dp" />
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/one"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toRightOf="@id/two"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Ironing"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
 
-            <RelativeLayout
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:layout_below="@+id/sp1"
-                android:id="@+id/two"
-                android:gravity="center"
-                android:background="@drawable/circle_shape_yellow">
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="19dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_toRightOf="@+id/one"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Washing"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp" />
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/iron_icon"
-                />
-        </RelativeLayout>
+                <android.support.v4.widget.Space
+                    android:id="@+id/sp3"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_below="@+id/three" />
 
-            <android.support.v4.widget.Space
-                android:layout_below="@+id/two"
-                android:id="@+id/sp2"
-                android:layout_width="match_parent"
-                android:layout_height="10dp" />
-
-            <RelativeLayout
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:layout_below="@+id/sp2"
-                android:gravity="center"
-                android:id="@+id/three"
-                android:background="@drawable/circle_shape_yellow">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/wash_icon"
-                    />
-            </RelativeLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/two"
-                android:layout_marginLeft="19dp"
-                android:layout_marginTop="27dp"
-                android:layout_toRightOf="@+id/three"
-                android:text="Drying"
-                android:fontFamily="@font/bree_serif"
-
-                android:textSize="15sp"
-                android:textColor="@android:color/black" />
-
-            <TextView
-                android:fontFamily="@font/bree_serif"
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/one"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="22dp"
-                android:layout_toRightOf="@id/two"
-                android:text="Ironing"
-                android:textColor="@android:color/black"
-                android:textSize="15sp" />
-
-            <TextView
-                android:fontFamily="@font/bree_serif"
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="19dp"
-                android:layout_marginTop="16dp"
-                android:textSize="15sp"
-                android:textColor="@color/colorBlack"
-                android:layout_toRightOf="@+id/one"
-                android:text="Washing" />
-
-            <android.support.v4.widget.Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp"
-                android:layout_below="@+id/three"
-                android:id="@+id/sp3"
-                />
-
-            <!--<EditText-->
+                <!--<EditText-->
                 <!--android:layout_width="match_parent"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:hint="Pickup Location"-->
@@ -154,174 +138,189 @@
                 <!--/>-->
 
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/email_container"
-                android:layout_below="@+id/sp3"
-                android:theme="@style/MyEditTextTheme"
-                android:layout_marginTop="18dp"
-                android:textColorHint="@color/colorBlack"
-                android:layout_marginBottom="8dp">
-                <EditText android:id="@+id/pickup_et"
-                    android:layout_width="match_parent"
-                    android:textColor="@color/colorBlack"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:hint="Pickup Location" />
-            </android.support.design.widget.TextInputLayout>
-
-            <ListView
-                android:divider="@android:color/darker_gray"
-                android:id="@+id/listview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:layout_below="@id/email_container">
-
-            </ListView>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/clothes_container"
-                android:theme="@style/MyEditTextTheme"
-                android:layout_below="@+id/listview"
-                android:layout_marginTop="18dp"
-                android:textColorHint="@color/colorBlack"
-                android:layout_marginBottom="8dp">
-
-                <EditText
-                    android:id="@+id/clothes"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/email_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/clothes_container"
-                    android:hint="Number Of Clothes"
-                    android:inputType="textEmailAddress"
+                    android:layout_below="@+id/sp3"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="8dp"
+                    android:theme="@style/MyEditTextTheme">
+
+                    <EditText
+                        android:id="@+id/pickup_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:hint="Pickup Location"
+                        android:fontFamily="@font/montserrat"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/colorBlack" />
+                </android.support.design.widget.TextInputLayout>
+
+                <ListView
+                    android:id="@+id/listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/email_container"
+                    android:divider="@android:color/darker_gray"
+                    android:visibility="gone">
+
+                </ListView>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/clothes_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/listview"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="8dp"
+                    android:theme="@style/MyEditTextTheme">
+
+                    <EditText
+                        android:id="@+id/clothes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/clothes_container"
+                        android:hint="Number Of Clothes"
+                        android:fontFamily="@font/montserrat"
+                        android:textSize="16sp"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/colorBlack" />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="12dp"
+                    android:buttonTint="@color/colorPrimary"
+                    android:text="CheckBox"
+                    android:theme="@style/MyCheckBox" />
+
+                <CheckBox
+                    android:id="@+id/checkBox1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/checkBox"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="35dp"
+                    android:buttonTint="@color/colorPrimary"
+                    android:text="CheckBox"
+                    android:theme="@style/MyCheckBox" />
+
+
+                <CheckBox
+                    android:id="@+id/checkBox2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/checkBox"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="100dp"
+                    android:buttonTint="@color/colorPrimary"
+                    android:text="CheckBox"
+                    android:theme="@style/MyCheckBox" />
+
+                <TextView
+                    android:id="@+id/payment_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/clothes_container"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Payment Method"
                     android:textColor="@color/colorBlack"
-                   />
-            </android.support.design.widget.TextInputLayout>
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-
-
-            <CheckBox
-                android:id="@+id/checkBox"
-                android:checked="true"
-                android:buttonTint="@color/colorPrimary"
-                android:layout_marginTop="12dp"
-                android:layout_alignParentEnd="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CheckBox" />
-
-            <CheckBox
-                android:id="@+id/checkBox1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/colorPrimary"
-                android:layout_below="@+id/checkBox"
-                android:layout_marginTop="35dp"
-                android:checked="true"
-                android:layout_alignParentEnd="true"
-                android:text="CheckBox" />
-
-
-            <CheckBox
-                android:id="@+id/checkBox2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/checkBox"
-                android:layout_marginTop="100dp"
-                android:checked="true"
-                android:layout_alignParentEnd="true"
-                android:buttonTint="@color/colorPrimary"
-                android:text="CheckBox" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Payment Method"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/colorBlack"
-                android:id="@+id/payment_text"
-                android:fontFamily="@font/montserrat"
-                android:layout_marginLeft="4dp"
-                android:textSize="18sp"
-                android:layout_below="@+id/clothes_container"/>
-
-            <RadioGroup
-                android:id="@+id/groupradio"
-                android:layout_marginTop="14dp"
-                android:padding="4dp"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/payment_text"
-                android:layout_marginLeft="10dp">
-
-                <!-- In RadioGroup create the 1 Radio Button-->
-                <!-- like this we will add some more Radio Button-->
-                <RadioButton
-                    android:id="@+id/radia_id1"
+                <RadioGroup
+                    android:id="@+id/groupradio"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlack"
-                    android:buttonTint="@color/colorPrimaryDark"
-                    android:text="Cash On Delivery"
-                    android:textSize="16dp" />
+                    android:layout_below="@+id/payment_text"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="14dp"
+                    android:padding="4dp">
 
-                <RadioButton
-                    android:id="@+id/radia_id2"
-                    android:layout_width="fill_parent"
-                    android:buttonTint="@color/colorPrimaryDark"
+                    <!-- In RadioGroup create the 1 Radio Button-->
+                    <!-- like this we will add some more Radio Button-->
+                    <RadioButton
+                        android:id="@+id/radia_id1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Cash On Delivery"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16dp" />
+
+                    <RadioButton
+                        android:id="@+id/radia_id2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:fontFamily="@font/montserrat"
+                        android:text="BHIM UPI"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16dp" />
+
+                    <RadioButton
+                        android:id="@+id/radia_id3"
+                        android:fontFamily="@font/montserrat"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Paytm"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16dp" />
+
+                    <RadioButton
+                        android:id="@+id/radia_id4"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Debit/Credit Card"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16dp" />
+
+                    <RadioButton
+                        android:id="@+id/radia_id5"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Net Banking"
+                        android:fontFamily="@font/montserrat"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16dp" />
+
+                </RadioGroup>
+
+
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/book_now_btn"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlack"
-                    android:text="BHIM UPI"
-                    android:textSize="16dp" />
-
-                <RadioButton
-                    android:id="@+id/radia_id3"
-                    android:layout_width="fill_parent"
-                    android:buttonTint="@color/colorPrimaryDark"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlack"
-                    android:text="Paytm"
-                    android:textSize="16dp" />
-
-                <RadioButton
-                    android:id="@+id/radia_id4"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlack"
-                    android:buttonTint="@color/colorPrimaryDark"
-                    android:text="Debit/Credit Card"
-                    android:textSize="16dp" />
-
-                <RadioButton
-                    android:id="@+id/radia_id5"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlack"
-                    android:buttonTint="@color/colorPrimaryDark"
-                    android:text="Net Banking"
-                    android:textSize="16dp" />
-
-            </RadioGroup>
+                    android:layout_below="@+id/groupradio"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_centerHorizontal="true"
+                    app:strokeWidth="2dp"
+                    app:backgroundTint="@android:color/transparent"
+                    app:strokeColor="@color/colorBlue"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginStart="4dp"
+                    app:rippleColor="@color/colorBlueFlash"
+                    android:layout_marginEnd="4dp"
+                    android:textColor="@color/colorBlue"
+                    android:layout_marginBottom="12dp"
+                    android:text="Book Now" />
 
 
-            <Button
-                android:layout_below="@+id/groupradio"
-                android:id="@+id/book_now_btn"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/rounded_buttton"
-                android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="15dp"
-                android:text="Book Now" />
 
 
-        </RelativeLayout>
+            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.codegladiators;
 
 import android.content.res.Resources;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -15,7 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements FragmentBookedHistory.OnFragmentInteractionListener,HomeFragment.OnFragmentInteractionListener,ShippingFragment.OnFragmentInteractionListener,ProfileFragment.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements FragmentBookedHistory.OnFragmentInteractionListener,HomeFragment.OnFragmentInteractionListener,ShippingFragment.OnFragmentInteractionListener,ProfileFragment.OnFragmentInteractionListener,RewardFragment.OnFragmentInteractionListener{
 
     DrawerLayout drawerLayout;
     private static long back_pressed;
@@ -51,6 +52,11 @@ public class MainActivity extends AppCompatActivity implements FragmentBookedHis
                         drawerLayout.closeDrawers();
                         loadFragment(new ProfileFragment());
                         return true;
+                    case R.id.rewards:
+                        toolbar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorLightYello)));
+                        toolbar.setTitle("Rewards");
+                        drawerLayout.closeDrawers();
+                        loadFragment(new RewardFragment());
                 }
 
                 return false;

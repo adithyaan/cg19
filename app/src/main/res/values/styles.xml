@@ -8,11 +8,11 @@
 
     <style name="MyEditTextTheme" parent="TextAppearance.AppCompat">
         <!--EditText hint color-->
-        <item name="android:textColorHint">@color/colorPrimaryDark</item>
+        <item name="android:textColorHint">@color/colorGrey</item>
         <!-- TextInputLayout text color-->
         <item name="colorControlActivated">@color/colorPrimaryDark</item>
         <!-- EditText line color when EditText on-focus-->
-        <item name="colorControlNormal">@color/colorBlack</item>
+        <item name="colorControlNormal">@color/colorGrey</item>
 
     </style>
 
@@ -27,5 +27,11 @@
     <style name="LoginProgress" parent="Theme.AppCompat.Light">
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
+
+    <style name="MyCheckBox" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorControlNormal">@color/colorBlueFlash</item>
+        <item name="colorControlActivated">@color/colorBlue</item>
+    </style>
+
 
 </resources>
