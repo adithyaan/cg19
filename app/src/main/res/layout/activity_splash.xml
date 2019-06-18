@@ -21,16 +21,17 @@
             android:layout_centerHorizontal="true"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:fontFamily="@font/amita"
+            android:fontFamily="@font/montserrat"
             />
 
         <ImageView
             android:layout_width="100dp"
             android:id="@+id/splash_icon"
             android:layout_centerHorizontal="true"
+            android:tint="@color/colorBlack"
             android:layout_height="100dp"
             android:layout_below="@+id/splash_txt"
-            android:src="@drawable/laundry3" />
+            android:src="@drawable/laundry1" />
 
 
     </RelativeLayout>
